@@ -1,18 +1,22 @@
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using XFCustomControlSample.Views;
 
 [assembly: XamlCompilation (XamlCompilationOptions.Compile)]
 namespace XFCustomControlSample
 {
 	public partial class App : Application
 	{
-		public App ()
+        public MainPage RootView { get; set; }
+
+        public App ()
 		{
 			InitializeComponent();
 
-			MainPage = new MainPage();
-		}
+            MainPage = new LoginPage();
+            RootView = new MainPage();
+        }
 
 		protected override void OnStart ()
 		{

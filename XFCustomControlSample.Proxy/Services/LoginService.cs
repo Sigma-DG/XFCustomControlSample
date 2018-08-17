@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using XFCustomControlSample.Common.Models;
 using XFCustomControlSample.Common.ServiceContracts;
@@ -14,7 +15,7 @@ namespace XFCustomControlSample.Proxy.Services
             //Bye object!!
         }
 
-        public async Task<ResultPack<UserInfo>> Login(LoginCredentials credentials)
+        public async Task<ResultPack<UserInfo>> Login(LoginCredentials credentials, CancellationToken? cancellationToken = null)
         {
             if (credentials == null || string.IsNullOrWhiteSpace(credentials.Username) || string.IsNullOrWhiteSpace(credentials.Password))
                 return new ResultPack<UserInfo> {

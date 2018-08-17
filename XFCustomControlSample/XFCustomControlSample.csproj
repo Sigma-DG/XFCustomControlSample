@@ -11,10 +11,16 @@
   <ItemGroup>
     <Folder Include="Controls\" />
     <Folder Include="BindableModels\" />
-    <Folder Include="Views\" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\XFCustomControlSample.Common\XFCustomControlSample.Common.csproj" />
+    <ProjectReference Include="..\XFCustomControlSample.Proxy\XFCustomControlSample.Proxy.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\LoginPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>
