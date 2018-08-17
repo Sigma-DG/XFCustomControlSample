@@ -7,8 +7,13 @@ using XFCustomControlSample.Common.ServiceContracts;
 
 namespace XFCustomControlSample.Proxy.Services
 {
-    public class LoginService : ILoginService
+    public class LoginService : ILoginService, IDisposable
     {
+        public void Dispose()
+        {
+            //Bye object!!
+        }
+
         public async Task<ResultPack<UserInfo>> Login(LoginCredentials credentials)
         {
             if (credentials == null || string.IsNullOrWhiteSpace(credentials.Username) || string.IsNullOrWhiteSpace(credentials.Password))
@@ -17,16 +22,23 @@ namespace XFCustomControlSample.Proxy.Services
                     Message = "Credentials are required"
                 };
 
-            await Task.Delay(1000);
+            await Task.Delay(2000);
 
-            return 
-                new ResultPack<UserInfo> {
+            return credentials.Username.ToLower().Equals("a") && credentials.Password.ToLower().Equals("1") ?
+                new ResultPack<UserInfo>
+                {
                     IsSucceeded = true,
-                    ReturnParam = new UserInfo {
+                    ReturnParam = new UserInfo
+                    {
                         FirstName = "John",
                         LastName = "Doe",
                         Title = "Mr."
                     }
+                } :
+                new ResultPack<UserInfo>
+                {
+                    IsSucceeded = false,
+                    Message = "Wrong credentials!\nPlease try again.."
                 };
         }
     }
