@@ -27,11 +27,11 @@ namespace XFCustomControlSample.Views
 
             if(ViewModel != null)
             {
-                ViewModel.OnLoginSuccessfulPageChange += (reason) => 
+                ViewModel.OnLoginSuccessfulPageChange += async (reason) => 
                 {
-                    Device.BeginInvokeOnMainThread(async () => {
+                    //Device.BeginInvokeOnMainThread(async () => {
                         await Navigation.PushAsync(((App)App.Current).RootView);
-                    });
+                    //});
                 };
             }
 		}

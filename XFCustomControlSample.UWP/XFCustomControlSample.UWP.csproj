@@ -148,7 +148,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\XFCustomControlSample\XFCustomControlSample.csproj">
-      <Project>{6F97D04C-944A-4EED-81EB-A854A8A13D02}</Project>
+      <Project>{c7f50b12-279f-4a05-ad78-59a901197f47}</Project>
       <Name>XFCustomControlSample</Name>
     </ProjectReference>
   </ItemGroup>

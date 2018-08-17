@@ -27,15 +27,17 @@
                 VerticalOptions="StartAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
 
-            <Button Text="Cancel" 
+            <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                <Button Text="Cancel" 
                     VerticalOptions="StartAndExpand"
                     HorizontalOptions="Start"
                     Command="{Binding ResetCommand}" />
-            
-            <Button Text="Login" 
+
+                <Button Text="Login" 
                     VerticalOptions="StartAndExpand"
                     HorizontalOptions="End"
                     Command="{Binding LoginCommand}" />
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
