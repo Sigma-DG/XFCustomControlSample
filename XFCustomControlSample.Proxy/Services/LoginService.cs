@@ -23,9 +23,11 @@ namespace XFCustomControlSample.Proxy.Services
                     Message = "Credentials are required"
                 };
 
-            await Task.Delay(2000);
+            if (!cancellationToken.HasValue) cancellationToken = CancellationToken.None;
 
-            return credentials.Username.ToLower().Equals("a") && credentials.Password.ToLower().Equals("1") ?
+            await Task.Delay(2000, cancellationToken.Value);
+
+            return credentials.Username.ToLower().Equals("a") && credentials.Password.Equals("1") ?
                 new ResultPack<UserInfo>
                 {
                     IsSucceeded = true,

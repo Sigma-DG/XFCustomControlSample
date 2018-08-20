@@ -2,13 +2,19 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodels="clr-namespace:XFCustomControlSample.ViewModels"
+             xmlns:converters="clr-namespace:XFCustomControlSample.Converters"
              x:Class="XFCustomControlSample.Views.LoginPage">
     <ContentPage.BindingContext>
         <viewmodels:LoginViewModel />
     </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <converters:BooleanInverseConverter x:Key="booleanInverseConverter" />
+    </ContentPage.Resources>
     
     <ContentPage.Content>
-        <StackLayout HorizontalOptions="Center" VerticalOptions="Center" >
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center"
+                      IsEnabled="{Binding IsLoading, Converter={StaticResource booleanInverseConverter}}">
             <Label Text="Login" FontSize="Large"
                 VerticalOptions="StartAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
@@ -23,17 +29,20 @@
                 <Entry Text="{Binding Password}" HorizontalOptions="EndAndExpand" />
             </StackLayout>
 
-            <Label Text="{Binding Message}" FontSize="Small"
-                VerticalOptions="StartAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="{Binding Message, Mode=OneWay}" FontSize="Small" TextColor="Red"
+                   IsVisible="{Binding IsLoading, Converter={StaticResource booleanInverseConverter}}"
+                   VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" />
+
+            <Label Text="{Binding StatusMessage, Mode=OneWay}" FontSize="Small" TextColor="Green"
+                   IsVisible="{Binding IsLoading}" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" />
 
             <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
-                <Button Text="Cancel" 
+                <Button Text="Cancel"
                     VerticalOptions="StartAndExpand"
                     HorizontalOptions="Start"
                     Command="{Binding ResetCommand}" />
 
-                <Button Text="Login" 
+                <Button Text="Login"
                     VerticalOptions="StartAndExpand"
                     HorizontalOptions="End"
                     Command="{Binding LoginCommand}" />

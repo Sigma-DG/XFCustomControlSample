@@ -52,17 +52,24 @@ namespace XFCustomControlSample.ViewModels
             LoginCommand = new Command(
                 async () => {
                     Message = string.Empty;
+                    
                     using (var loginSvr = new LoginService())
                     {
                         StatusMessage = "Logging in..";
                         IsLoading = true;
-                        var res = await loginSvr.Login(Credentials);
+                        var res = await loginSvr.Login(Credentials, PageCancellationTokenSource.Token);
                         StatusMessage = "Logged in successfully";
-                        IsLoading = false;
                         if (res.IsSucceeded)
+                        {
+                            await System.Threading.Tasks.Task.Delay(1000, PageCancellationTokenSource.Token);
+
                             OnLoginSuccessfulPageChange?.Invoke(StatusMessage);
+                        }
                         else Message = res.Message;
+                        IsLoading = false;
                     }
+
+                    StatusMessage = string.Empty;
                 }, 
                 () => {
                     return !string.IsNullOrWhiteSpace(Username) && !string.IsNullOrWhiteSpace(Password);
@@ -81,7 +88,7 @@ namespace XFCustomControlSample.ViewModels
 
         public override void OnDisappeared()
         {
-            
+            base.OnDisappeared();
         }
         
         public new void OnPropertyChanged(string propertyName)

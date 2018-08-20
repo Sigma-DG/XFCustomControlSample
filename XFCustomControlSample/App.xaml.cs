@@ -8,14 +8,14 @@ namespace XFCustomControlSample
 {
 	public partial class App : Application
 	{
-        public MainPage RootView { get; set; }
+        public NavigationPage RootView { get; set; }
 
         public App ()
 		{
 			InitializeComponent();
 
-            MainPage = new LoginPage();
-            RootView = new MainPage();
+            MainPage = new NavigationPage(new LoginPage());
+            RootView = new NavigationPage(new MainPage());
         }
 
 		protected override void OnStart ()
