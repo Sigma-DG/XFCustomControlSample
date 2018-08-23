@@ -9,6 +9,7 @@ namespace XFCustomControlSample
 	public partial class App : Application
 	{
         public NavigationPage RootView { get; set; }
+        public NavigationPage TileListView { get; set; }
 
         public App ()
 		{
@@ -16,6 +17,7 @@ namespace XFCustomControlSample
 
             MainPage = new NavigationPage(new LoginPage());
             RootView = new NavigationPage(new MainPage());
+            TileListView = new NavigationPage(new TileListPage());
         }
 
 		protected override void OnStart ()

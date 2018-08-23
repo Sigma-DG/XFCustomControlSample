@@ -30,7 +30,7 @@ namespace XFCustomControlSample.Views
                 ViewModel.OnLoginSuccessfulPageChange += async (reason) => 
                 {
                     //Device.BeginInvokeOnMainThread(async () => {
-                        await Navigation.PushAsync(((App)App.Current).RootView);
+                        await Navigation.PushAsync(((App)App.Current).TileListView);
                     //});
                 };
             }
