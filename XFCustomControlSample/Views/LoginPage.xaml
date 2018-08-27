@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodels="clr-namespace:XFCustomControlSample.ViewModels"
              xmlns:converters="clr-namespace:XFCustomControlSample.Converters"
+             xmlns:controls="clr-namespace:XFCustomControlSample.Controls"
              x:Class="XFCustomControlSample.Views.LoginPage">
     <ContentPage.BindingContext>
         <viewmodels:LoginViewModel />
@@ -19,15 +20,19 @@
                 VerticalOptions="StartAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
 
-            <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+            <controls:LoginEntry Hint="Username" Value="{Binding Username}" />
+
+            <controls:LoginEntry Hint="Password" Value="{Binding Password}" IsPassword="True" />
+
+            <!--<StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
                 <Label Text="Username" HorizontalOptions="StartAndExpand" />
                 <Entry Text="{Binding Username}" HorizontalOptions="EndAndExpand" />
-            </StackLayout>
+            </StackLayout>-->
 
-            <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+            <!--<StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
                 <Label Text="Password" HorizontalOptions="StartAndExpand" />
                 <Entry Text="{Binding Password}" HorizontalOptions="EndAndExpand" />
-            </StackLayout>
+            </StackLayout>-->
 
             <Label Text="{Binding Message, Mode=OneWay}" FontSize="Small" TextColor="Red"
                    IsVisible="{Binding IsLoading, Converter={StaticResource booleanInverseConverter}}"
