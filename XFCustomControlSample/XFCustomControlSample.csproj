@@ -14,10 +14,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="BindableModels\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\XFCustomControlSample.Common\XFCustomControlSample.Common.csproj" />
     <ProjectReference Include="..\XFCustomControlSample.Proxy\XFCustomControlSample.Proxy.csproj" />
   </ItemGroup>

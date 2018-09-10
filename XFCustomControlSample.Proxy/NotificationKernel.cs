@@ -9,9 +9,11 @@ namespace XFCustomControlSample.Proxy
         private Task _scheduler, _runner;
         private int _secondCounter = 0;
 
-        public VoidEventHandler OnMinuteTicked, OnSecondTicked;
+        public event VoidEventHandler OnMinuteTicked, OnSecondTicked;
 
-        public static Lazy<NotificationKernel> Current { get; } = new Lazy<NotificationKernel>();
+        private static Lazy<NotificationKernel> _current = new Lazy<NotificationKernel>();
+
+        public static NotificationKernel Current { get => _current.Value; }
 
         public NotificationKernel()
         {
@@ -24,6 +26,8 @@ namespace XFCustomControlSample.Proxy
                     await Task.Delay(5000).ConfigureAwait(false);
                 }
             });
+
+            _runner.Start();
         }
 
         private void InitTask()
