@@ -15,6 +15,6 @@ namespace XFCustomControlSample.Common.ServiceContracts
 
         Task<PagedReponse<ProductGroup>> Search(string keyword, CancellationToken cancellationToken, int? pageSize = null, int? pageIndex = null);
 
-        Task<Product> GetProduct(Guid productId, CancellationToken cancellationToken);
+        Task<ResultPack<Product>> GetProduct(Guid productId, CancellationToken cancellationToken);
     }
 }
