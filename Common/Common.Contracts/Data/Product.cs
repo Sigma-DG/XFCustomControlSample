@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace XFCustomControlSample.Common.Models
+namespace Common.Contracts.Data
 {
     public class Product : TreeLeaf
     {

@@ -1,15 +1,15 @@
-﻿using System;
+﻿using Common.Contracts.Data;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using XFCustomControlSample.Common.Models;
 
-namespace XFCustomControlSample.Common.ServiceContracts
+namespace Common.Contracts.Service
 {
     public interface IProductService
     {
-        Task<PagedReponse<Product>> GetProductsInGroup(Guid groupId, CancellationToken cancellationToken, int? pageSize = null, int? pageIndex = null);
+        Task<PagedReponse<Data.Product>> GetProductsInGroup(Guid groupId, CancellationToken cancellationToken, int? pageSize = null, int? pageIndex = null);
 
         Task<PagedReponse<ProductGroup>> GetGroups(CancellationToken cancellationToken, int? pageSize = null, int? pageIndex = null);
 

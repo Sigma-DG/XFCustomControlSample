@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace XFCustomControlSample.Common.Models
+namespace Common.Contracts.Data
 {
     public class LoginCredentials : RequestBase
     {

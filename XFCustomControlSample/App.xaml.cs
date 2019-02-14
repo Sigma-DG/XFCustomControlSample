@@ -1,7 +1,7 @@
+using Common.Contracts;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using XFCustomControlSample.Common;
 using XFCustomControlSample.Proxy;
 using XFCustomControlSample.Views;
 

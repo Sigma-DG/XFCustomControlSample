@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Common.Contracts;
+using Common.Contracts.Data;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
-using XFCustomControlSample.Common;
-using XFCustomControlSample.Common.Models;
 using XFCustomControlSample.Proxy.Services;
 
 namespace XFCustomControlSample.ViewModels

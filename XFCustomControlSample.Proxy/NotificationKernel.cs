@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Common.Contracts;
+using System;
 using System.Threading.Tasks;
-using XFCustomControlSample.Common;
 
 namespace XFCustomControlSample.Proxy
 {

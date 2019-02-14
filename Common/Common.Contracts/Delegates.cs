@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace XFCustomControlSample.Common
+namespace Common.Contracts
 {
     public delegate void PageChangeEventHandler(string Reason);
 

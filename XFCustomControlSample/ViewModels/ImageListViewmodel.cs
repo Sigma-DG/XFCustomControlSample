@@ -8,7 +8,6 @@ using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
-using XFCustomControlSample.Common.Models;
 using XFCustomControlSample.Proxy.Services;
 
 namespace XFCustomControlSample.ViewModels

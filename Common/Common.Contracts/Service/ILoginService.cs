@@ -1,11 +1,11 @@
-﻿using System;
+﻿using Common.Contracts.Data;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using XFCustomControlSample.Common.Models;
 
-namespace XFCustomControlSample.Common.ServiceContracts
+namespace Common.Contracts.Service
 {
     public interface ILoginService
     {
